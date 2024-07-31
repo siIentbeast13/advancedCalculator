@@ -65,7 +65,6 @@ class Segment:
         i = 0
         while i < len(output):
             if type(output[i]) == Segment:
-                print("Segment")
                 output2.append(Token(NUM_T, output[i].value))
             elif output[i].type == SUB_T:
                 if type(output[i+1]) == Segment:
