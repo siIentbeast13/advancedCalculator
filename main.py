@@ -9,14 +9,18 @@ def main() -> None:
     global start
 
 
-    code:str = input("> ")
+    code:str = input("> ").replace(" ","")
 
     start = time.time()
 
     log("main:function.main input: "+code)
 
+    for c in code:
+        if c not in "1234567890()-+*/":
+            print("Invalid character")
+            exit()
 
-    lex = lexer.Lexer(code.replace(" ", ""))
+    lex = lexer.Lexer(code)
     lex.start()
     tokens = lex.output
 
